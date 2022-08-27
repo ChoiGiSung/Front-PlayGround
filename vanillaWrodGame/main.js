@@ -19,13 +19,21 @@ init()
 
 function init(){
     initWords()
-    word.innerText = words[0]
     input.addEventListener("input",inputHandler.bind())
     timeInterval = setInterval(countDown,1000)
 }
 
 function initWords(){
-    words = ["a","b","c"]
+    axios.get('https://random-word-api.herokuapp.com/word?number=10')
+    .then(function (response) {
+      words = response.data
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+  
 }
 
 function inputHandler(){

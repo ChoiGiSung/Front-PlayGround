@@ -5,13 +5,13 @@
         <button type="button" @click="getData">Get</button>
         <button type="button" @click="setData">Set</button>
 
-        <select class="form-control" v-model="region" @change="changeRegion">
+        <select class="form-control" v-model="region" @change="changeRegion" v-show="selectShow">
             <option :key="i" :value="d.name" v-for="(d,i) in options">
                 {{d.title}}
             </option>
         </select>
 
-        <table>
+        <table v-if="tableShow">
             <tr :key="i" v-for="(d,i) in options">
                 <td>{{d.name}}</td>
                 <td>{{d.title}}</td>
@@ -33,7 +33,9 @@ export default {
             {name : "J" ,title : "제주"},
             {name : "B" ,title : "부산"},
         ],
-        region : "B"
+        region : "B",
+        tableShow: false,
+        selectShow: true
     }
   },
   methods:{

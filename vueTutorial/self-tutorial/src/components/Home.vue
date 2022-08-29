@@ -4,7 +4,7 @@
     <h1>홈{{title1}}</h1>
     <div>
         <input type="text" v-model="input1">
-        <button type="button" @click="getData">추가</button>
+        <button type="button" @click="getData" v-bind:id="vid">추가</button>
         <button type="button" @click="setData">setData</button>
         <select v-model="defaultOption" @change="changeR" v-if="true">
             <option :key="i" v-for="(d,i) in options" :value="d.name">{{d.title}}</option>
@@ -31,7 +31,8 @@ export default {
                     {name:"제주",title:"jeju"},
                 ],
                 defaultOption : "제주",
-                input1 : "input"
+                input1 : "input",
+                vid: "vid"
             }
         },
         methods:{
@@ -40,6 +41,7 @@ export default {
             },
             setData(){
                 this.input1 = "sss"
+                this.vid = "vvid"
             },
             changeR(){
                 alert("체인지")
@@ -54,3 +56,9 @@ export default {
 
 }
 </script>
+
+<style>
+.vid{
+    background-color: blue;
+}
+</style>

@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <input type="text" v-model="id">
+  <input type="text" v-model="password">
+  <HeaderView v-bind:realId="id"
+              v-bind:realPassword="password"
+    ></HeaderView>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderView from "./components/HeaderView"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderView
+  },
+  data : function(){
+    return{
+      id: "",
+      password: ""
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+

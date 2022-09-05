@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <TodoHeader></TodoHeader>
   <TodoInput></TodoInput>
   <TodoList></TodoList>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item,index) in todoList" :key="item" >
+      <li v-for="(item,index) in this.propsdata" :key="item.item" >
         <i :class="{finsh:item.complete}" @click="finsh(item)">완료</i>
         {{item.item}}
         <i @click="remove(item.item,index)">삭제</i>
@@ -13,18 +13,9 @@
 <script>
 export default {
     name: "TodoList",
-    data: function(){
-      return {
-        todoList:[]
-      }
-    },
-    created: function(){
-      for(let i = 0; i < localStorage.length; i++){
-         let item = localStorage.getItem(localStorage.key(i))
-         this.todoList.push(JSON.parse(item))
-      }
-    }
-    ,
+    props:[
+      'propsdata'
+    ],
     methods : {
       remove(item,index){
         localStorage.removeItem(item)

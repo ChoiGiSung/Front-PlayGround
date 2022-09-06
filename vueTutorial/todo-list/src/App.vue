@@ -1,7 +1,7 @@
 <template>
   <TodoHeader></TodoHeader>
   <TodoInput></TodoInput>
-  <TodoList></TodoList>
+  <TodoList v-bind:propsdata="todoList"></TodoList>
   <TodoFooter></TodoFooter>
 
 </template>
@@ -16,7 +16,18 @@ export default {
   name: 'App',
   components: {
     TodoHeader,TodoInput,TodoList,TodoFooter
-  }
+  },
+  data: function(){
+    return {
+      todoList:[]
+    }
+  },
+  created: function(){
+    for(let i = 0; i < localStorage.length; i++){
+        let item = localStorage.getItem(localStorage.key(i))
+        this.todoList.push(JSON.parse(item))
+    }
+}
 }
 </script>
 

@@ -18,7 +18,8 @@ export default {
         this.input = ""
       },
       saveInput(){
-        localStorage.setItem(this.input,this.input)
+        var obj = {complete : false, item: this.input}
+        localStorage.setItem(this.input,JSON.stringify(obj))
         this.initInput()
       },
 

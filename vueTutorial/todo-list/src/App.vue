@@ -2,7 +2,7 @@
   <TodoHeader></TodoHeader>
   <TodoInput v-on:saveInput="saveOneInput"></TodoInput>
   <TodoList v-bind:propsdata="todoList" v-on:removeItem="remove" v-on:finsh="finsh"></TodoList>
-  <TodoFooter></TodoFooter>
+  <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
 
 </template>
 
@@ -38,6 +38,10 @@ export default {
         localStorage.setItem(input,JSON.stringify(obj))
          this.todoList.push(obj)
       },
+       clearAll(){
+        localStorage.clear()
+        this.todoList = []
+      }
   },
   created: function(){
     for(let i = 0; i < localStorage.length; i++){

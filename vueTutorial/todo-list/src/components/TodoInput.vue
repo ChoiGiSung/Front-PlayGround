@@ -14,14 +14,13 @@ export default {
       }
     },
     methods:{
-      initInput(){
-        this.input = ""
-      },
       saveInput(){
-        var obj = {complete : false, item: this.input}
-        localStorage.setItem(this.input,JSON.stringify(obj))
+        this.$emit('saveInput',this.input)
         this.initInput()
       },
+      initInput(){
+        this.input = ""
+      }
 
     }
 }

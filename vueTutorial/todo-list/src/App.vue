@@ -1,6 +1,6 @@
 <template>
   <TodoHeader></TodoHeader>
-  <TodoInput></TodoInput>
+  <TodoInput v-on:saveInput="saveOneInput"></TodoInput>
   <TodoList v-bind:propsdata="todoList" v-on:removeItem="remove" v-on:finsh="finsh"></TodoList>
   <TodoFooter></TodoFooter>
 
@@ -31,7 +31,13 @@ export default {
         item.complete =  !item.complete
         localStorage.removeItem(item)
         localStorage.setItem(item.item,JSON.stringify(item))
-    }
+    },
+    saveOneInput(input){
+      console.log(input);
+        var obj = {complete : false, item: input}
+        localStorage.setItem(input,JSON.stringify(obj))
+         this.todoList.push(obj)
+      },
   },
   created: function(){
     for(let i = 0; i < localStorage.length; i++){

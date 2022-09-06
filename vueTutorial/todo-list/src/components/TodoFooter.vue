@@ -1,10 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <p @click="clearAll">clear all</p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "TodoFooter"
+    name: "TodoFooter",
+    methods: {
+      clearAll(){
+        localStorage.clear()
+      }
+    }
 }
 </script>
 

@@ -18,8 +18,7 @@ export default {
     ],
     methods : {
       remove(item,index){
-        localStorage.removeItem(item)
-         this.todoList.splice(index,1)
+        this.$emit('removeItem',item,index)
       },
       finsh(item){
         console.log(item)

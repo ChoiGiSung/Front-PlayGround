@@ -17,13 +17,13 @@ export default {
   components: {
     TodoHeader,TodoInput,TodoList,TodoFooter
   },
-  data: function(){
+  data(){
     return {
       todoList:[]
     }
   },
   methods:{
-    remove:function(item,index){
+    remove(item,index){
           localStorage.removeItem(item)
          this.todoList.splice(index,1)
     },
@@ -43,7 +43,7 @@ export default {
         this.todoList = []
       }
   },
-  created: function(){
+  created(){
     for(let i = 0; i < localStorage.length; i++){
         let item = localStorage.getItem(localStorage.key(i))
         this.todoList.push(JSON.parse(item))

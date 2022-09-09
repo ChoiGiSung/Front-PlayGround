@@ -44,9 +44,11 @@ export default {
       }
   },
   created(){
-    for(let i = 0; i < localStorage.length; i++){
-        let item = localStorage.getItem(localStorage.key(i))
-        this.todoList.push(JSON.parse(item))
+    if (localStorage.length > 0) {
+      for(let i = 0; i < localStorage.length; i++){
+          let item = localStorage.getItem(localStorage.key(i))
+          this.todoList.push(JSON.parse(item))
+      }
     }
 }
 }

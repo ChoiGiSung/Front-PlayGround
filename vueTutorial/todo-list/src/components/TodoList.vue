@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li v-for="(item,index) in this.propsdata" :key="item.item" >
+      <li v-for="(item,index) in this.storedTodoItems" :key="item.item" >
         <i :class="{finsh:item.complete}" @click="finsh(item)">완료</i>
         {{item.item}}
         <i @click="remove(item.item,index)">삭제</i>
@@ -11,6 +11,10 @@
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
+
+
 export default {
     name: "TodoList",
     props:[
@@ -23,6 +27,11 @@ export default {
       finsh(item){
         this.$emit('finsh',item)
       }
+    },
+    computed:{
+      ...mapGetters({
+        storedTodoItems: 'getTodoItems'
+      })
     }
 
 }

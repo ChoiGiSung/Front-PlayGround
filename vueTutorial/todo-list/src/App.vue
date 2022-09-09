@@ -1,7 +1,7 @@
 <template>
   <TodoHeader></TodoHeader>
   <TodoInput v-on:saveInput="saveOneInput"></TodoInput>
-  <TodoList v-bind:propsdata="todoList" v-on:removeItem="remove" v-on:finsh="finsh"></TodoList>
+  <TodoList v-on:removeItem="remove" v-on:finsh="finsh"></TodoList>
   <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
 
 </template>

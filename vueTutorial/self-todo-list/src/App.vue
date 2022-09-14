@@ -45,10 +45,12 @@ export default {
   methods:{
     addTodoItem(input){
       let obj = {key: input, value: {visible: true, todo: input}}
+      localStorage.setItem(input, JSON.stringify(obj.value))
       this.todoList.push(obj)
     },
     clearAll(){
       this.todoList = []
+      localStorage.clear()
     }
   }
 }

@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <AppHeader></AppHeader>
     <AppInput></AppInput>
-    <AppList></AppList>
+    <AppList v-bind:propsdata="todoList"></AppList>
     <AppFooter></AppFooter>
   </div>
 </template>
@@ -21,6 +21,16 @@ export default {
     AppInput,
     AppList,
     AppFooter
+  },
+  data(){
+    return{
+      todoList:[
+        {
+          key:"1",
+          value: "ss"
+        }
+      ]
+    }
   }
 }
 </script>

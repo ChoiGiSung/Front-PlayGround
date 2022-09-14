@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <AppHeader></AppHeader>
-    <AppInput></AppInput>
+    <AppInput v-on:addTodoItem="addTodoItem"></AppInput>
     <AppList v-bind:propsdata="todoList"></AppList>
     <AppFooter></AppFooter>
   </div>
@@ -30,6 +30,12 @@ export default {
           value: "ss"
         }
       ]
+    }
+  },
+  methods:{
+    addTodoItem(input){
+      let obj = {key: input, value: input}
+      this.todoList.push(obj)
     }
   }
 }

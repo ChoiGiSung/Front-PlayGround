@@ -27,21 +27,24 @@ export default {
       todoList:[
         {
           key:"1",
-          value: "ss"
+          value: {
+            visible: true,
+            todo: "defaule"
+          }
         }
       ]
     }
   },
   created() {
     for(let i = 0; i < localStorage.length; i++){
-      let input = localStorage.getItem(localStorage.key(i))
-      let obj = {key: input, value: input}
-      this.todoList.push(obj)
+      let storageVaule = localStorage.getItem(localStorage.key(i))
+      let jsonValue = JSON.parse(storageVaule)
+      this.todoList.push({key: jsonValue.todo, value: jsonValue})
     }
   },
   methods:{
     addTodoItem(input){
-      let obj = {key: input, value: input}
+      let obj = {key: input, value: {visible: true, todo: input}}
       this.todoList.push(obj)
     },
     clearAll(){

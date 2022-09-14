@@ -2,7 +2,7 @@
   <div>
     <ul>
         <li v-for="todoItem in this.propsdata" v-bind:key="todoItem.key" >
-            {{todoItem.value}}
+            {{todoItem.value.todo}}
         </li>
     </ul>
   </div>

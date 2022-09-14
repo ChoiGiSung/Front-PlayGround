@@ -32,6 +32,13 @@ export default {
       ]
     }
   },
+  created() {
+    for(let i = 0; i < localStorage.length; i++){
+      let input = localStorage.getItem(localStorage.key(i))
+      let obj = {key: input, value: input}
+      this.todoList.push(obj)
+    }
+  },
   methods:{
     addTodoItem(input){
       let obj = {key: input, value: input}

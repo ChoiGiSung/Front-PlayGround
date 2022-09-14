@@ -4,7 +4,7 @@
     <AppHeader></AppHeader>
     <AppInput v-on:addTodoItem="addTodoItem"></AppInput>
     <AppList v-bind:propsdata="todoList"></AppList>
-    <AppFooter></AppFooter>
+    <AppFooter v-on:clearAll="clearAll"></AppFooter>
   </div>
 </template>
 
@@ -36,6 +36,9 @@ export default {
     addTodoItem(input){
       let obj = {key: input, value: input}
       this.todoList.push(obj)
+    },
+    clearAll(){
+      this.todoList = []
     }
   }
 }

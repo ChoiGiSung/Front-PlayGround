@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <AppHeader></AppHeader>
     <AppInput v-on:addTodoItem="addTodoItem"></AppInput>
-    <AppList v-bind:propsdata="todoList"></AppList>
+    <AppList v-bind:propsdata="todoList" v-on:finsh="finsh"></AppList>
     <AppFooter v-on:clearAll="clearAll"></AppFooter>
   </div>
 </template>
@@ -51,6 +51,11 @@ export default {
     clearAll(){
       this.todoList = []
       localStorage.clear()
+    },
+    finsh(value){
+      value.visible = !value.visible
+      localStorage.removeItem(value.todo)
+      localStorage.setItem(value.todo,JSON.stringify(value))
     }
   }
 }

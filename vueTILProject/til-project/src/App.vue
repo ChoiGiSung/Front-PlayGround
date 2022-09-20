@@ -2,6 +2,7 @@
   <div id="app">
     <HeaderView/>
     <LoginView/>
+    <router-view></router-view>
   </div>
 </template>
 

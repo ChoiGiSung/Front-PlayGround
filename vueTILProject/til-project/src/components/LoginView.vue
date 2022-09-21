@@ -63,8 +63,14 @@ export default {
         })
         .then((result) => {
           alert(result.data.message)
+          this.redirectPage()
+        }).catch(function(error){
+          console.log(error);
         })
       },
+      redirectPage(){
+          this.$router.push('/post')
+      }
     },
     computed:{
       getUserJson(){

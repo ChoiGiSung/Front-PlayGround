@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <HeaderView/>
-    <LoginView/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import HeaderView from "./components/HeaderView.vue"
-import LoginView from "./components/LoginView.vue"
-
 
 export default {
   name: 'App',
   components: {
     HeaderView,
-    LoginView
+
   }
 }
 </script>

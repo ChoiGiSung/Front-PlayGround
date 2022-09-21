@@ -9,6 +9,7 @@
           id="input-1"
           type="text"
           placeholder="아이디"
+          v-model="userId"
         ></b-form-input>
       </b-form-group>
 
@@ -19,6 +20,8 @@
         <b-form-input
           id="input-2"
           placeholder="비밀번호를 씁시다"
+          v-model="userPw"
+          type="password"
         ></b-form-input>
       </b-form-group>
 
@@ -31,7 +34,7 @@
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit">Submit</b-button>
+      <b-button type="button" @click="loginRequest">Submit</b-button>
       <b-button type="reset">Reset</b-button>
     </b-form>
     <b-card class="mt-3">
@@ -43,7 +46,38 @@
 
 <script>
 export default {
-    name : "LoginView"
+    name : "LoginView",
+    data(){
+      return{
+        userId:'',
+        userPw:''
+      }
+    },
+    methods:{
+      loginRequest(){
+        const url = '/api/authaccount/registration'
+        this.$http.post(url, this.getUserJson,{
+          headers: {
+            "Content-Type": `application/json`,
+          },
+        })
+        .then((result) => {
+          alert(result.data.message)
+        })
+      },
+    },
+    computed:{
+      getUserJson(){
+        return JSON.stringify(
+          {
+            "name" : this.userId,
+            "password" : this.userPw,
+            "email" : this.userId + '@naver.com'
+          }
+        )
+      }
+    }
+
 }
 </script>
 

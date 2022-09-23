@@ -62,7 +62,7 @@ export default {
           },
         })
         .then(() => {
-          this.successLogin
+          this.successLogin()
           this.redirectPage()
         }).catch(function(error){
           alert(error)
@@ -73,7 +73,7 @@ export default {
           this.$router.push('/post')
       },
       successLogin(){
-        localStorage.setItem(this.userId, this.userId)
+        localStorage.setItem('user', this.userId)
       }
     },
     computed:{

@@ -61,15 +61,19 @@ export default {
             "Content-Type": `application/json`,
           },
         })
-        .then((result) => {
-          alert(result.data.message)
+        .then(() => {
+          this.successLogin
           this.redirectPage()
         }).catch(function(error){
+          alert(error)
           console.log(error);
         })
       },
       redirectPage(){
           this.$router.push('/post')
+      },
+      successLogin(){
+        localStorage.setItem(this.userId, this.userId)
       }
     },
     computed:{
